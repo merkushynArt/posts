@@ -2,6 +2,7 @@ import express, { json } from 'express';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import cors from 'cors';
+import authRoute from './routes/auth.js'
 
 const app = express();
 dotenv.config();
@@ -15,9 +16,12 @@ const DB_NAME = process.env.DB_NAME;
 // Middleware - для розширення функцыоналу express
 // Для відправки запросів з різних ip-адресів
 app.use(cors());
-
 //Для того щобexpress розумів що дані с фронту будуть приходити у форматі json
 app.use(express.json());
+
+// Routes
+// http://localhost:3002/api/auth
+app.use('/api/auth', authRoute);
 
 async function start() {
    try {
