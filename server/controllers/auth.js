@@ -1,5 +1,6 @@
 import User from '../models/User.js';
 import bcrypt  from 'bcryptjs';
+import jwt from 'jsonwebtoken';
 
 // Register user
 export const register = async (req, res) => {
@@ -34,9 +35,34 @@ export const register = async (req, res) => {
 // Login user
 export const login = async (req, res) => {
    try {
+      const { username, password } = req.body;
 
+      const user = await User.findOne({ username });
+      if(!user) {
+         return res.json({ message: 'Такого користувача немає.', })
+      }
+
+      // Функція compare порівнює введений пароль та хешований пароль
+      const isPasswordCorrect = await bcrypt.compare(password, user.password);
+      if(!isPasswordCorrect) {
+         return res.json({ message: 'Ви невірно ввели пароль.' })
+      }
+
+      const token = jwt.sign(
+         {
+            id: user._id,
+         },
+         process.env.JWT_SECRET,
+         { expiresIn: '30d' },
+      );
+
+      res.json({
+         token,
+         user,
+         message: 'Ви успішно увійшли в систему.',
+      })
    } catch(error) {
-      console.log(error);
+      res.json({ message: 'Помилка при авторизації.',});
    }
 }
 
