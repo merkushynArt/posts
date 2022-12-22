@@ -69,8 +69,25 @@ export const login = async (req, res) => {
 //Get me
 export const getMe = async (req, res) => {
    try {
+      // Саме той userId який я вшив в req у checkAuth.js
+      const user = await User.findById(req.userId);
+      if(!user) {
+         return res.json({ message: 'Такого користувача немає.', });
+      }
 
+      const token = jwt.sign(
+         {
+            id: user._id,
+         },
+         process.env.JWT_SECRET,
+         { expiresIn: '30d' },
+      );
+
+      res.json({
+         user,
+         token,
+      })
    } catch(error) {
-      console.log(error);
+      res.json({ message: 'Немає доступу.',});
    }
 }
