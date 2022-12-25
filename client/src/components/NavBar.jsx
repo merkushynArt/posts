@@ -2,7 +2,7 @@ import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
 
 export const NavBar = () => {
-   const isAuth = true;
+   const isAuth = false;
 
    const activeStyles = {
       color: 'white',
