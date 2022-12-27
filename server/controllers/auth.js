@@ -48,13 +48,13 @@ export const login = async (req, res) => {
 
       const user = await User.findOne({ username });
       if(!user) {
-         return res.json({ message: 'Такого користувача немає.', })
+         return res.json({ message: 'Такого користувача немає.', });
       }
 
       // Функція compare порівнює введений пароль та хешований пароль
       const isPasswordCorrect = await bcrypt.compare(password, user.password);
       if(!isPasswordCorrect) {
-         return res.json({ message: 'Ви невірно ввели пароль.' })
+         return res.json({ message: 'Ви невірно ввели пароль.' });
       }
 
       const token = jwt.sign(

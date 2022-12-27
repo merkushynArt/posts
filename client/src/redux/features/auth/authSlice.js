@@ -21,7 +21,7 @@ export const registerUser = createAsyncThunk(
          }
          return data;
       } catch (error) {
-         console.log(error)
+         console.log(error);
       }
    },
 );
