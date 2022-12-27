@@ -7,7 +7,8 @@ const initialState = {
    loading: false,
 }
 
-export const createPost = createAsyncThunk('post/createPost', 
+export const createPost = createAsyncThunk(
+   'post/createPost', 
    async (params) => {
       try {
          const { data } = await axios.post('/posts', params);

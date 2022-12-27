@@ -2,8 +2,10 @@ import express, { json } from 'express';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import cors from 'cors';
+import fileUpload from 'express-fileupload';
 import authRoute from './routes/auth.js';
 import postRoute from './routes/posts.js';
+
 
 const app = express();
 dotenv.config();
@@ -19,6 +21,10 @@ const DB_NAME = process.env.DB_NAME;
 app.use(cors());
 //Для того щобexpress розумів що дані с фронту будуть приходити у форматі json
 app.use(express.json());
+// Для загрузки файлів
+app.use(fileUpload());
+// Для того щоб express  розумів де будуть зберігатися статичні файли
+app.use(express.static('uploads'));
 
 // Routes
 // http://localhost:3002/api/auth

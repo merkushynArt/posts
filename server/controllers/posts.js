@@ -11,7 +11,7 @@ export const createPost = async (req, res) => {
 
       // Якщо в пості є картинка
       if(req.files) {
-         let fileName = Date.now().toString + req.files.image.name;
+         let fileName = Date.now().toString() + req.files.image.name;
          // Отримую ту папку в якій знаходжуся(controllers)
          const __dirname = dirname(fileURLToPath(import.meta.url));
          // Переміщаю картинку в папку uploads
