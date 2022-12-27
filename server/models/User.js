@@ -12,7 +12,7 @@ const UserSchema = new mongoose.Schema(
          required: true,
       },
       posts: [{
-         //Посилання на іншу схуму
+         //Посилання на іншу схeму
          type: mongoose.SchemaTypes.ObjectId,
          ref: 'Post',
       }],
