@@ -55,3 +55,21 @@ export const createPost = async (req, res) => {
       res.json({ massage: 'Щось пішло не так.' });
    }
 }
+
+//Get all posts
+export const getAll = async (req, res) => {
+   try {
+      // Получаю усі пости та сортую їх по даті створенню
+      const posts = await Post.find().sort('-createdAt');
+      // Получаю 5 найпопулярніших постів, сортую їч по перегдядам
+      const popularPosts = await Post.find().limit(5).sort('-views');
+
+      if(!posts) {
+         return res.json({ message: 'Постів немає.' });
+      }
+
+      res.json({ posts, popularPosts });
+   } catch(error) {
+      res.json({ message: 'Щось пішло не так.' });
+   }
+}

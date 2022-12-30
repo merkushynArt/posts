@@ -85,7 +85,7 @@ export const AddPostPage = () => {
             onClick={clearFormHandler}
                className='flex justify-center items-center bg-red-500 text-xs text-white rounded-sm py-2 px-4'
             >
-               Отменить
+               Відмінити
             </button>
          </div>
       </form>
