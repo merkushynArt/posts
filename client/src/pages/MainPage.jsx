@@ -15,7 +15,7 @@ export const MainPage = () => {
    if (!posts.length) {
       return (
          <div className='text-xl text-center text-white py-10'>
-            Пості немає.
+            Постів немає.
          </div>
       )
    }
@@ -25,8 +25,7 @@ export const MainPage = () => {
          <div className='flex justify-between gap-8'>
 
             <div className='flex flex-col gap-10 basis-4/5'>
-               <PostItem/>
-               <PostItem/>
+               {posts?.map((post, idx) => (<PostItem key={idx} post={post} />))}
             </div>
 
             <div className='basis-1/5'>
@@ -34,9 +33,8 @@ export const MainPage = () => {
                   Популярні пости:
                </div>
                {popularPosts?.map(
-                     (post, idx) => (<PopularPosts key={idx} post={post} />)
-                  )
-               }
+                  (post, idx) => (<PopularPosts key={idx} post={post} />)
+               )}
             </div>
 
          </div>
