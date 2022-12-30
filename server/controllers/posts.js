@@ -73,3 +73,17 @@ export const getAll = async (req, res) => {
       res.json({ message: 'Щось пішло не так.' });
    }
 }
+
+//Get post by id
+export const getById = async (req, res) => {
+   try {
+      // Получив пост та оновив перегляди
+      const post = await Post.findByIdAndUpdate(req.params.id, {
+         $inc: { views: 1 },
+      });
+
+      res.json(post);
+   } catch(error) {
+      res.json({ message: 'Щось пішло не так.' });
+   }
+}
