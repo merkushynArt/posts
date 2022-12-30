@@ -1,4 +1,5 @@
 import React from 'react';
+import { PopularPosts } from '../components/PopularPosts.jsx';
 import { PostItem } from '../components/PostItem.jsx';
 
 export const MainPage = () => {
@@ -11,7 +12,7 @@ export const MainPage = () => {
             </div>
             <div className='basis-1/5'>
                <div className='text-xs uppercase text-white'>
-                  Популярні пости
+                  <PopularPosts/>
                </div>
             </div>
          </div>
