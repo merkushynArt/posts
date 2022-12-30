@@ -4,6 +4,7 @@ import { AiFillEye, AiOutlineMessage } from "react-icons/ai";
 export const PostItem = () => {
    return (
       <div className='flex flex-col basis-1/4 flex-grow'>
+         
          <div>Image</div>
 
          <div className='flex justify-between items-center pt-2'>
@@ -23,6 +24,7 @@ export const PostItem = () => {
                <AiOutlineMessage/> <span>0</span>
             </button>
          </div>
+
       </div>
    )
 }
