@@ -111,8 +111,9 @@ export const removePost = async (req, res) => {
       if(!post) return res.json({ message: 'Такого поста немає.' });
 
       await User.findByIdAndUpdate(req.userId, {
-         $pull: { posts: req.params.id }
+         $pull: { posts: req.params.id },
       });
+
       res.json({ message: 'Пост видалений.' });
    } catch (error) {
       res.json({ message: 'Щось пішло не так.' });

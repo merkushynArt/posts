@@ -17,6 +17,6 @@ router.get('/:id', getById);
 router.get('/user/me', checkAuth, getMyPosts);
 
 // Remove post http://localhost:3002/api/posts/:id
-router.get('/:id', checkAuth, removePost);
+router.delete('/:id', checkAuth, removePost);
 
 export default router;

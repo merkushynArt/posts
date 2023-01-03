@@ -29,7 +29,16 @@ export const getAllPosts = createAsyncThunk(
          console.log(error);
       }
    }
-)
+);
+
+export const removePost = createAsyncThunk('post/removePost', async (id) => {
+   try {
+      const { data } = await axios.delete(`/posts/${id}`, id);
+      return data;
+   } catch (error) {
+      console.log(error);
+   }
+});
 
 export const postSlice = createSlice({
    name: 'post',
@@ -59,6 +68,20 @@ export const postSlice = createSlice({
       [getAllPosts.rejected]: (state) => {
          state.loading = false;
       },
+      // Видалення посту
+      [removePost.pending]: (state) => {
+         state.loading = true;
+      },
+      [removePost.fulfilled]: (state, action) => {
+         state.loading = false;
+         // За допомогою filter, повертаю новий масив у якого вже не буде post._id той що я вибрав(action.payload._id),
+         state.posts = state.posts.filter(
+            (post) => post._id !== action.payload._id,
+         );
+      },
+      [removePost.rejected]: (state) => {
+         state.loading = false;
+      },  
    },
 });
 
