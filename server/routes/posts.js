@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { createPost, getAll, getById, getMyPosts } from "../controllers/posts.js";
+import { createPost, getAll, getById, getMyPosts, removePost } from "../controllers/posts.js";
 import { checkAuth } from "../utils/checkAuth.js";
 
 const router = new Router();
@@ -15,5 +15,8 @@ router.get('/:id', getById);
 
 // Get post by id http://localhost:3002/api/posts/user/me
 router.get('/user/me', checkAuth, getMyPosts);
+
+// Remove post http://localhost:3002/api/posts/:id
+router.get('/:id', checkAuth, removePost);
 
 export default router;
