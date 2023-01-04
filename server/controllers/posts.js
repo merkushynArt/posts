@@ -1,5 +1,6 @@
 import Post from "../models/Post.js";
 import User from "../models/User.js";
+import Comment from "../models/Comment.js";
 import path, { dirname } from 'path';
 import { fileURLToPath } from "url";
 
@@ -151,7 +152,7 @@ export const getPostComments = async (req, res) => {
 
       const list = await Promise.all(
          post.comments.map((comment) => {
-            return Comment.findById(comment)
+            return Comment.findById(comment);
          }),
       );
 

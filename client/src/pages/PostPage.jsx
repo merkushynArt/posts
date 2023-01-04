@@ -6,15 +6,17 @@ import Moment from 'react-moment';
 import axios from '../utils/axios.js';
 import { toast } from 'react-toastify';
 import { removePost } from '../redux/features/post/postSlice.js';
-import { createComment } from '../redux/features/comment/commentSlice.js';
+import { createComment, getPostComments } from '../redux/features/comment/commentSlice.js';
+import { CommentItem } from '../components/CommentItem.jsx';
 
 export const PostPage = () => {
    const [post, setPost] = useState(null);
-   const [comment, setComment] = useState('')
+   const [comment, setComment] = useState('');
+   const { comments } = useSelector((state) => state.comment);
    const { user } = useSelector((state) => state.auth);
    const params = useParams();
    const navigate = useNavigate();
-   const dispatch = useDispatch()
+   const dispatch = useDispatch();
 
    const removePostHandler = () => {
       try {
@@ -41,9 +43,21 @@ export const PostPage = () => {
       setPost(data);
    }, [params.id]);
 
+   const fetchComments = useCallback(async () => {
+      try {
+         dispatch(getPostComments(params.id));
+      } catch (error) {
+         console.log(error);
+      }
+   }, [params.id, dispatch]);
+
    useEffect(() => {
       fetchPost();
    }, [fetchPost]);
+
+   useEffect(() => {
+      fetchComments();
+   }, [fetchComments]);
 
    if (!post) {
       return (
@@ -133,6 +147,7 @@ export const PostPage = () => {
                   className='flex gap-2'
                   onSubmit={(e) => e.preventDefault()}
                >
+
                   <input
                      type='text'
                      value={comment}
@@ -140,6 +155,7 @@ export const PostPage = () => {
                      placeholder='Comment'
                      className='text-black w-full rounded-sm bg-gray-400 border p-2 text-xs outline-none placeholder:text-gray-700'
                   />
+
                   <button
                      type='submit'
                      onClick={handleSubmit}
@@ -147,7 +163,11 @@ export const PostPage = () => {
                   >
                      Відправити
                   </button>
+
                </form>
+
+               {comments?.map((cmt) => (<CommentItem  key={cmt._id} cmt={cmt} />))}
+               
             </div>
 
          </div>
