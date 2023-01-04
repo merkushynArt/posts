@@ -47,7 +47,7 @@ export const createPost = async (req, res) => {
       await newPostWithoutImage.save();
       // Знайшов User і пушу в post в User posts без картинки
       await User.findByIdAndUpdate(req.userId, {
-         $push: { posts: newPostWithImage },
+         $push: { posts: newPostWithoutImage },
       });
 
       res.json(newPostWithoutImage);
