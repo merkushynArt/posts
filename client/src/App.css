@@ -1,0 +1,79 @@
+* {
+   box-sizing: border-box;
+   padding: 0;
+   margin: 0;
+}
+
+body {
+   background: rgb(255, 255, 255);
+   font-family: 'Poppins', sans-serif;
+   min-height: 100vh;
+
+}
+
+.container {
+   max-width: 1024px;
+   padding: 0 5px;
+}
+
+.navbar {
+   -webkit-box-shadow: 0px 0px 14px 3px rgba(0,0,0,0.33); 
+   box-shadow: 0px 0px 14px 3px rgba(0,0,0,0.33);
+   color: rgb(127, 127, 127);
+}
+
+.navbar__container {
+   margin: 0 auto;
+   padding: 5px;
+   max-width: 1100px;
+   width: 100%;
+   display: flex;
+   justify-content: space-between;
+}
+
+.navbar__avatar {
+   background: #000;
+   width: 40px;
+   height: 40px;
+   font-size: 24px;
+   line-height: 24px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   color: #fff;
+   border-radius: 50px;
+}
+
+.navbar__list {
+   display: flex;
+   align-items: center;
+   gap: 10px;
+}
+
+.navbar__list-item {
+   padding: 1px 5px;
+   border-radius: 20px;
+   transition: all .1s linear;
+   display: flex;
+   gap: 2px;
+   align-items: center;
+}
+
+.navbar__list-item:hover {
+   color: rgb(0, 0, 0);
+}
+
+.authblock__container {
+   color: rgb(0, 0, 0);
+   display: flex;
+   align-items: center;
+}
+
+.authblock {
+   display: flex;
+   align-items: center;
+   gap: 2px;
+}
+
+/*text-xs text-gray-400 hover:text-white*/
+

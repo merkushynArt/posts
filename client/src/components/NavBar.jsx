@@ -3,13 +3,17 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link, NavLink } from 'react-router-dom';
 import { checkIsAuth, logout } from '../redux/features/auth/authSlice.js';
 import { toast } from 'react-toastify';
+import { HiHome } from 'react-icons/hi';
+import { BiUserPin, BiLogIn, BiLogOut } from 'react-icons/bi';
+import { MdOutlineAddCircle } from "react-icons/md";
+
 
 export const NavBar = () => {
    const isAuth = useSelector(checkIsAuth);
    const dispatch = useDispatch();
 
    const activeStyles = {
-      color: 'white',
+      color: "rgb(0, 0, 0)",
    }
 
    const logoutHandler = () => {
@@ -19,47 +23,55 @@ export const NavBar = () => {
    }
 
    return (
-      <div className='flex py-4 justify-between items-center'>
-         <span className='flex justify-center items-center w-6 h-6 bg-gray-600 text-xs text-white rounded-sm'>
-            M
-         </span>
+      <div className='navbar'>
+         <div className='navbar__container'>
 
-         { isAuth && (
-            <ul className='flex gap-8'>
-               <li>
-                  <NavLink
-                     to={'/'}
-                     href='/'
-                     className='text-xs text-gray-400 hover:text-white'
-                     style={({ isActive }) => isActive ? activeStyles : undefined}
-                  >
-                     Головна
-                  </NavLink>
-               </li>
-               <li>
-                  <NavLink
-                     to={'/posts'}
-                     href='/'
-                     className='text-xs text-gray-400 hover:text-white'
-                     style={({ isActive }) => isActive ? activeStyles : undefined}
-                  >
-                     Мої пости
-                  </NavLink>
-               </li>
-               <li>
-                  <NavLink
-                     to={'/new'}
-                     href='/'
-                     className='text-xs text-gray-400 hover:text-white'
-                     style={({ isActive }) => isActive ? activeStyles : undefined}
-                  >
-                     Добавити пост
-                  </NavLink>
-               </li>
-            </ul>
-         )}
-         <div className='flex justify-center items-center bg-gray-600 text-xs text-white rounded-sm px-4 py-2'>
-            {isAuth ? (<button onClick={logoutHandler}>Вийти</button>) : (<Link to={'/login'}> Увійти </Link>)}
+            <span className='navbar__avatar'>
+               A
+            </span>
+
+            { isAuth && (
+               <ul className='navbar__list'>
+                  <li>
+                     <NavLink
+                        to={'/'}
+                        href='/'
+                        className='navbar__list-item'
+                        style={({ isActive }) => isActive ? activeStyles : undefined}
+                     >
+                        <HiHome style={{fontSize : '24px'}}/>
+                        Головна
+                     </NavLink>
+                  </li>
+                  <li>
+                     <NavLink
+                        to={'/posts'}
+                        href='/'
+                        className='navbar__list-item'
+                        style={({ isActive }) => isActive ? activeStyles : undefined}
+                     >
+                        <BiUserPin style={{fontSize : '24px'}}/>
+                        Мої пости
+                     </NavLink>
+                  </li>
+                  <li>
+                     <NavLink
+                        to={'/new'}
+                        href='/'
+                        className='navbar__list-item'
+                        style={({ isActive }) => isActive ? activeStyles : undefined}
+                     >
+                        <MdOutlineAddCircle style={{fontSize : '24px'}}/>
+                        Добавити пост
+                     </NavLink>
+                  </li>
+               </ul>
+            )}
+
+            <div className='authblock__container'>
+               {isAuth ? (<button className='authblock' onClick={logoutHandler}><BiLogOut style={{fontSize : '24px'}}/> Вийти</button>) : (<Link className='authblock' to={'/login'}><BiLogIn style={{fontSize : '24px'}}/> Увійти </Link>)}
+            </div>
+
          </div>
       </div>
    )
