@@ -21,15 +21,15 @@ export const MainPage = () => {
    }
 
    return (
-      <div className='max-w-[900px] mx-auto py-10'>
-         <div className='flex justify-between gap-8'>
-
-            <div className='flex flex-col gap-10 basis-4/5'>
+      <div className=''>
+         <div className='main'>
+            
+            <div className='posts__container'>
                {posts?.map((post, idx) => (<PostItem key={idx} post={post} />))}
             </div>
 
-            <div className='basis-1/5'>
-               <div className='text-xs uppercase text-white'>
+            <div className='posts-popular'>
+               <div className='text-xs uppercase'>
                   Популярні пости:
                </div>
                {popularPosts?.map(
