@@ -71,7 +71,7 @@ export const AddPostPage = () => {
             />
          </label>
 
-         <div className='add-post__btns'>
+         <div className='post__btns'>
             <button
                onClick={submitHandler}
                className='btn-ok'
