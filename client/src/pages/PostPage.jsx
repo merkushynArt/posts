@@ -2,6 +2,7 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux'
 import { AiFillEye, AiOutlineMessage, AiTwotoneEdit, AiFillDelete, } from "react-icons/ai";
+import { IoSend, IoArrowBackCircle } from "react-icons/io5";
 import Moment from 'react-moment';
 import axios from '../utils/axios.js';
 import { toast } from 'react-toastify';
@@ -61,7 +62,7 @@ export const PostPage = () => {
 
    if (!post) {
       return (
-         <div className='text-xl text-center text-white py-10'>
+         <div className='text-xl text-center py-10'>
             Загрузка...
          </div>
       )
@@ -70,16 +71,16 @@ export const PostPage = () => {
    return (
       <div>
 
-         <button className='flex justify-center items-center bg-gray-600 text-xs text-white rounded-sm py-2 px-4'>
+         <button className='back-btn'>
             <Link className='flex' to={'/'}>
-               Назад
+               <IoArrowBackCircle/>
             </Link>
          </button>
 
-         <div className='flex gap-10 py-8'>
+            <div className='postpage-container'>
 
-            <div className='w-2/3'>
-               <div className='flex flex-col basis-1/4 flex-grow'>
+            <div className='postpage'>
+               <div>
                   <div
                      className={
                         post?.imgUrl
@@ -96,78 +97,67 @@ export const PostPage = () => {
                      )}
                   </div>
                </div>
-
-               <div className='flex justify-between items-center pt-2'>
-                  <div className='text-xs text-white opacity-50'>
-                     {post.username}
+               <div className='postpage__info'>
+                  <div className='flex justify-between items-center pt-2'>
+                     <div className='text-xs opacity-90'>
+                        {post.username}
+                     </div>
+                     <div className='text-xs opacity-90'>
+                        <Moment date={post.createdAt} format='D MMM YYYY' />
+                     </div>
                   </div>
-                  <div className='text-xs text-white opacity-50'>
-                     <Moment date={post.createdAt} format='D MMM YYYY' />
-                  </div>
-               </div>
-               
-               <div className='text-white text-xl'>{post.title}</div>
-
-               <p className='text-white opacity-60 text-xs pt-4'>
-                  {post.text}
-               </p>
-
-               <div className='flex gap-3 items-center mt-2 justify-between'>
-                  <div className='flex gap-3 mt-4'>
-                     <button className='flex items-center justify-center gap-2 text-xs text-white opacity-50'>
-                        <AiFillEye /> <span>{post.views}</span>
-                     </button>
-                     <button className='flex items-center justify-center gap-2 text-xs text-white opacity-50'>
-                        <AiOutlineMessage />{' '}
-                        <span>{post.comments?.length || 0} </span>
-                     </button>
-                  </div>
-
-                  {user?._id === post.author && (
-                     <div className='flex gap-3 mt-4'>
-                        <button className='flex items-center justify-center gap-2 text-white opacity-50'>
-                           <Link to={`/${params.id}/edit`}>
-                              <AiTwotoneEdit />
-                           </Link>
+                  <div className='postpage__title'>{post.title}</div>
+                  <p>{post.text}</p>
+                  <div className='postpage__config'>
+                     <div className='postpage__config-item'>
+                        <button className='flex items-center justify-center gap-2'>
+                           <AiFillEye /> <span>{post.views}</span>
                         </button>
-                        <button
-                           onClick={removePostHandler}
-                           className='flex items-center justify-center gap-2  text-white opacity-50'
-                        >
-                           <AiFillDelete />
+                        <button className='flex items-center justify-center gap-2'>
+                           <AiOutlineMessage />{' '}
+                           <span>{post.comments?.length || 0} </span>
                         </button>
                      </div>
-                  )}
+                     {user?._id === post.author && (
+                        <div className='postpage__config-item'>
+                           <button className='flex items-center justify-center gap-2'>
+                              <Link to={`/${params.id}/edit`}>
+                                 <AiTwotoneEdit />
+                              </Link>
+                           </button>
+                           <button
+                              onClick={removePostHandler}
+                              className='flex items-center justify-center gap-2'
+                           >
+                              <AiFillDelete />
+                           </button>
+                        </div>
+                     )}
+                  </div>
                </div>
-
             </div>
-
-            <div className='w-1/3 p-8 bg-gray-700 flex flex-col gap-2 rounded-sm'>
+            
+            <div className='postpage-comments'>
                <form
-                  className='flex gap-2'
+                  className='postpage-comments__form'
                   onSubmit={(e) => e.preventDefault()}
                >
-
                   <input
                      type='text'
                      value={comment}
                      onChange={(e) => setComment(e.target.value)}
-                     placeholder='Comment'
-                     className='text-black w-full rounded-sm bg-gray-400 border p-2 text-xs outline-none placeholder:text-gray-700'
+                     placeholder='Добавте ваш коментар'
+                     className='postpage-comments__form-input'
                   />
-
                   <button
                      type='submit'
                      onClick={handleSubmit}
-                     className='flex justify-center items-center bg-gray-600 text-xs text-white rounded-sm py-2 px-4'
+                     className='postpage-comments__form-btn'
                   >
-                     Відправити
+                     <IoSend/>
                   </button>
-
                </form>
-
-               {comments?.map((cmt) => (<CommentItem  key={cmt._id} cmt={cmt} />))}
-               
+               {comments?.map((cmt) => (<CommentItem  key={cmt._id} cmt={cmt} />))}               
             </div>
 
          </div>

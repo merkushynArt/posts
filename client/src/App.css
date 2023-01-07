@@ -18,6 +18,11 @@ body {
    max-width: 1024px;
    padding: 0 5px;
 }
+
+.back-btn {
+   font-size: 30px;
+   margin: 5px 0;
+}
 /*=====================================================================================*/
 .navbar {
    -webkit-box-shadow: 0px 0px 14px 3px rgba(0,0,0,0.33); 
@@ -104,7 +109,7 @@ body {
 .post__info {
    display: flex;
    justify-content: space-between;
-   font-size: 12px;
+   font-size: 14px;
    line-height: 18px;
    opacity: 0.8;
 }
@@ -121,5 +126,98 @@ body {
    opacity: 0.8;
    margin-top: 10px;
 }
+
+.post__calc-item {
+   display: flex;
+   align-items: center;
+   gap: 5px;
+   font-size: 16px;
+   line-height: 16px;
+}
 /*=====================================================================================*/
+.postpage-container {
+   display: flex;
+   justify-content: space-between;
+}
+
+.postpage {
+   -webkit-box-shadow: 0px 0px 14px 3px rgba(0,0,0,0.33); 
+   box-shadow: 0px 0px 14px 3px rgba(0,0,0,0.33);
+   width: 65%;
+}
+
+.postpage__info {
+   padding: 0 5px 5px;
+}
+
+.postpage__title {
+   font-size: 24px;
+   line-height: 30px;
+   font-weight: 600;
+}
+
+.postpage__config {
+   display: flex;
+   justify-content: space-between;
+   font-size: 16px;
+   line-height: 16px;
+   margin-top: 10px;
+}
+
+.postpage__config-item {
+   display: flex;
+   gap: 16px;
+}
+
+.postpage-comments {
+   -webkit-box-shadow: 0px 0px 14px 3px rgba(0,0,0,0.33); 
+   box-shadow: 0px 0px 14px 3px rgba(0,0,0,0.33);
+   width: 30%;
+   padding: 16px;
+}
+
+.postpage-comments__form {
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   margin-bottom: 5px;
+}
+
+.postpage-comments__form-input {
+   width: 88%;
+   padding: 5px;
+   border: 2px solid gray;
+   border-radius: 10px;
+}
+
+.postpage-comments__form-btn {
+   font-size: 30px;
+}
+
+.postpage-comments__item {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+}
+
+.postpage-comments__avatar {
+   width: 30px !important;
+   height: 30px !important;
+   font-size: 20px;
+   line-height: 20px;
+   font-weight: 600;
+   border: 2px solid gray;
+   border-radius: 50px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+
+.postpage-comments__text {
+   overflow: hidden;
+   width: 88%;
+   font-size: 12px;
+}
+
+
 

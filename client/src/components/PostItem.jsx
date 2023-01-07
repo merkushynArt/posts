@@ -40,10 +40,10 @@ export const PostItem = ({ post }) => {
                <p className='post__text line-clamp-3'>{ post.text }</p>
 
                <div className='post__calc'>
-                  <button className='flex items-center justify-center gap-2'>
+                  <button className='post__calc-item'>
                      <AiFillEye /> <span>{ post.views }</span>
                   </button>
-                  <button className='flex items-center justify-center gap-2'>
+                  <button className='post__calc-item'>
                      <AiOutlineMessage />{' '}
                      <span>{post.comments?.length || 0} </span>
                   </button>
