@@ -6,7 +6,7 @@ export const Layout = ({ children }) => {
    return (
       <React.Fragment>
          <NavBar />
-         <div className='container mx-auto'>
+         <div className='container'>
             { children }
          </div>
       </React.Fragment>

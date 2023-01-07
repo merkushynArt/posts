@@ -6,7 +6,7 @@
 
 body {
    font-family: 'Poppins', sans-serif;
-   background: rgb(255, 255, 255);
+   background: #fff;
    font-size: 14px;
    line-height: 18px;
    font-weight: 400;
@@ -16,13 +16,22 @@ body {
 
 .container {
    max-width: 1024px;
-   padding: 0 5px;
    padding: 20px 0;
+   margin: 0 auto;
 }
 
-.back-btn {
-   font-size: 30px;
-   margin: 5px 0;
+.btn-ok {
+   background: #7f7f7f;
+   padding: 5px 10px;
+   border-radius: 5px;
+   color: #fff;
+}
+
+.btn-cancel {
+   background: #ff2a2a;
+   padding: 5px 10px;
+   border-radius: 5px;
+   color: #fff;
 }
 /*=====================================================================================*/
 .navbar {
@@ -218,6 +227,79 @@ body {
    width: calc(100% - 34px);
    font-size: 12px;
 }
+/*=====================================================================================*/
+.add-post {
+   max-width: 470px;
+   width: 100%;
+   padding: 20px;
+   margin: 0 auto;
+   -webkit-box-shadow: 0px 0px 14px 3px rgba(0, 0, 0, 0.329); 
+   box-shadow: 0px 0px 14px 3px rgba(0,0,0,0.33);
+   border-radius: 5px;
+}
 
+.add-post__image {
+   display: block;
+   border: 3px solid #7f7f7f;
+   background: #c3c3c3;
+   border-style: dashed;
+   height: 50px;
+   width: 100%;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   color: #fff;
+}
 
+.add-post__title {
+   font-size: 16px;
+   line-height: 16px;
+   font-weight: 600;
+}
+
+.add-post__title input {
+   display: block;
+   width: 100%;
+   padding: 5px;
+   border-radius: 5px;
+   font-size: 14px;
+   font-weight: 500;
+   background:#c3c3c3;
+   margin-bottom: 10px;
+   outline: none;
+}
+
+.add-post__title input::placeholder {
+   color: #fff;
+}
+
+.add-post__text {
+   font-size: 16px;
+   line-height: 16px;
+   font-weight: 600;
+}
+
+.add-post__text textarea {
+   display: block;
+   width: 100%;
+   min-height: 100px;
+   padding: 5px;
+   border-radius: 5px;
+   font-size: 14px;
+   font-weight: 500;
+   background:#c3c3c3;
+   outline: none;
+   resize: none;
+}
+
+.add-post__text textarea::placeholder {
+   color: #fff;
+}
+
+.add-post__btns {
+   display: flex;
+   justify-content: center;
+   gap: 20px;
+   margin-top: 20px;
+}
 

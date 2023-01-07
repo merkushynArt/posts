@@ -47,9 +47,10 @@ export const EditPostPage = () => {
 
    return (
       <form
-         className='w-1/3 mx-auto py-10'
+         className=''
          onSubmit={(e) => e.preventDefault()}
       >
+
          <label className='text-gray-300 py-2 bg-gray-600 text-xs mt-2 flex items-center justify-center border-2 border-dotted cursor-pointer'>
             Прикріпити зображення:
             <input
@@ -61,6 +62,7 @@ export const EditPostPage = () => {
                }}
             />
          </label>
+
          <div className='flex object-cover py-2'>
             {oldImage && (
                <img
@@ -104,7 +106,6 @@ export const EditPostPage = () => {
             >
                Оновити
             </button>
-
             <button
                onClick={clearFormHandler}
                className='flex justify-center items-center bg-red-500 text-xs text-white rounded-sm py-2 px-4'
@@ -112,6 +113,7 @@ export const EditPostPage = () => {
                Відмінити
             </button>
          </div>
+
       </form>
-   )
+   );
 }
