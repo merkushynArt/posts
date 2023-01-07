@@ -21,23 +21,20 @@ export const MainPage = () => {
    }
 
    return (
-      <div className=''>
-         <div className='main'>
-            
-            <div className='posts__container'>
-               {posts?.map((post, idx) => (<PostItem key={idx} post={post} />))}
-            </div>
-
-            <div className='posts-popular'>
-               <div className='text-xs uppercase'>
-                  Популярні пости:
-               </div>
-               {popularPosts?.map(
-                  (post, idx) => (<PopularPosts key={idx} post={post} />)
-               )}
-            </div>
-
+      <div className='main'>           
+         <div className='posts-container'>
+            {posts?.map((post, idx) => (<PostItem key={idx} post={post} />))}
          </div>
+
+         <div className='posts-popular'>
+            <div className='text-xs uppercase'>
+               Популярні пости:
+            </div>
+            {popularPosts?.map(
+               (post, idx) => (<PopularPosts key={idx} post={post} />)
+            )}
+         </div>
+
       </div>
    )
 }

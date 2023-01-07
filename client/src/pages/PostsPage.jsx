@@ -19,7 +19,7 @@ export const PostsPage = () => {
    }, []);
 
    return (
-      <div className='w-1/2 mx-auto py-10 flex flex-col gap-10'>
+      <div className='posts-container' style={{margin: '0 auto'}}>
          {posts?.map((post, idx) => (
             <PostItem post={post} key={idx} />
          ))}
