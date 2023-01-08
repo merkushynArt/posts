@@ -98,7 +98,7 @@ export const PostPage = () => {
                   </div>
                </div>
                <div className='postpage__title'>{post.title}</div>
-               <p>{post.text}</p>
+               <p className='postpage__text'>{post.text}</p>
                <div className='postpage__config'>
                   <div className='postpage__config-item'>
                      <button className='flex items-center justify-center gap-2'>

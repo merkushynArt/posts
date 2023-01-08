@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
 import { updatePost } from '../redux/features/post/postSlice.js';
 import axios from '../utils/axios.js';
+import TextareaAutosize from 'react-textarea-autosize';
 
 export const EditPostPage = () => {
    const [title, setTitle] = useState('');
@@ -89,11 +90,11 @@ export const EditPostPage = () => {
 
          <label className='add-post__text'>
             Текст посту:
-            <textarea
+            <TextareaAutosize
+               cacheMeasurements
                onChange={(e) => setText(e.target.value)}
                value={text}
                placeholder='Текст посту'
-               
             />
          </label>
 

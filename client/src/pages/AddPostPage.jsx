@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom'
 import { createPost } from '../redux/features/post/postSlice.js';
+import TextareaAutosize from 'react-textarea-autosize';
 
 export const AddPostPage = () => {
    const [title, setTitle] = useState('');
@@ -64,7 +65,7 @@ export const AddPostPage = () => {
 
          <label className='add-post__text'>
             Текст посту:
-            <textarea
+            <TextareaAutosize
                value={text}
                onChange={(e) => setText(e.target.value)}
                placeholder='Текст посту'
