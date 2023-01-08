@@ -47,11 +47,10 @@ export const EditPostPage = () => {
 
    return (
       <form
-         className=''
+         className='add-post'
          onSubmit={(e) => e.preventDefault()}
       >
-
-         <label className='text-gray-300 py-2 bg-gray-600 text-xs mt-2 flex items-center justify-center border-2 border-dotted cursor-pointer'>
+         <label className='add-post__image'>
             Прикріпити зображення:
             <input
                type='file'
@@ -78,37 +77,36 @@ export const EditPostPage = () => {
             )}
          </div>
 
-         <label className='text-xs text-white opacity-70'>
-            Заголовок посту:
+         <label className='add-post__title'>
+            Назва посту:
             <input
                type='text'
                value={title}
                onChange={(e) => setTitle(e.target.value)}
-               placeholder='Заголовок'
-               className='mt-1 text-black w-full rounded-lg bg-gray-400 border py-1 px-2 text-xs outline-none placeholder:text-gray-700'
+               placeholder='Назва посту'
             />
          </label>
 
-         <label className='text-xs text-white opacity-70'>
+         <label className='add-post__text'>
             Текст посту:
             <textarea
                onChange={(e) => setText(e.target.value)}
                value={text}
                placeholder='Текст посту'
-               className='mt-1 text-black w-full rounded-lg bg-gray-400 border py-1 px-2 text-xs outline-none resize-none h-40 placeholder:text-gray-700'
+               
             />
          </label>
 
-         <div className='flex gap-8 items-center justify-center mt-4'>
+         <div className='post__btns'>
             <button
                onClick={submitHandler}
-               className='flex justify-center items-center bg-gray-600 text-xs text-white rounded-sm py-2 px-4'
+               className='btn-ok'
             >
                Оновити
             </button>
             <button
                onClick={clearFormHandler}
-               className='flex justify-center items-center bg-red-500 text-xs text-white rounded-sm py-2 px-4'
+               className='btn-cancel'
             >
                Відмінити
             </button>
