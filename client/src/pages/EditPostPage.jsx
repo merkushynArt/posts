@@ -15,7 +15,7 @@ export const EditPostPage = () => {
    const dispatch = useDispatch();
    const navigate = useNavigate();
    const params = useParams();
-
+   
    const fetchPost = useCallback(async () => {
       const { data } = await axios.get(`/posts/${params.id}`);
       setTitle(data.title);
@@ -46,6 +46,9 @@ export const EditPostPage = () => {
       fetchPost();
    }, [fetchPost]);
 
+
+
+
    return (
       <form
          className='add-post'
@@ -62,7 +65,7 @@ export const EditPostPage = () => {
                }}
             />
          </label>
-
+         
          <div className='flex object-cover py-2'>
             {oldImage && (
                <img
@@ -91,7 +94,7 @@ export const EditPostPage = () => {
          <label className='add-post__text'>
             Текст посту:
             <TextareaAutosize
-               cacheMeasurements
+               acheMeasurements
                onChange={(e) => setText(e.target.value)}
                value={text}
                placeholder='Текст посту'

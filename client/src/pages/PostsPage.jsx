@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { PostItem } from '../components/PostItem.jsx';
+import { UserInfo } from '../components/UserInfo.jsx';
 import axios from '../utils/axios.js';
 
 export const PostsPage = () => {
@@ -20,6 +21,8 @@ export const PostsPage = () => {
 
    return (
       <div className='posts-container' style={{margin: '0 auto'}}>
+         <UserInfo/>
+
          {posts?.map((post, idx) => (
             <PostItem post={post} key={idx} />
          ))}

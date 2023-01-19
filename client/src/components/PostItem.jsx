@@ -17,7 +17,7 @@ export const PostItem = ({ post }) => {
       <Link className='post__container' to={`/${post._id}`}>
          <div className='post flex flex-col basis-1/4 flex-grow'>
 
-            <div className={post.imgUrl ? 'flex rouded-sm h-80' : 'flex rounded-sm'}>
+            <div className={post.imgUrl ? 'flex rouded-sm' : 'flex rounded-sm'}>
                {post.imgUrl && (
                   <img
                      src={`http://localhost:3002/${post.imgUrl}`}

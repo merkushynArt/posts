@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux';
 import { AiFillEye, AiOutlineMessage, AiTwotoneEdit, AiFillDelete, } from "react-icons/ai";
 import { IoSend } from "react-icons/io5";
 import Moment from 'react-moment';
@@ -74,7 +74,7 @@ export const PostPage = () => {
                <div
                   className={
                      post?.imgUrl
-                        ? 'flex rouded-sm h-80'
+                        ? 'flex rounded-sm'
                         : 'flex rounded-sm'
                   }
                >
