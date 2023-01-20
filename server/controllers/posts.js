@@ -89,7 +89,7 @@ export const getById = async (req, res) => {
    }
 }
 
-// Get All Posts
+// Get all my posts
 export const getMyPosts = async (req, res) => {
    try {
       const user = await User.findById(req.userId);

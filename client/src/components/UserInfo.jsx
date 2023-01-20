@@ -10,7 +10,6 @@ export const UserInfo = () => {
          </div>
          <div className='user-info__text'>
             <div>{user.username}</div>
-            {user.aboutblog}
          </div>
       </div>
    );

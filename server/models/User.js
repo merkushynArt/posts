@@ -32,10 +32,10 @@ const UserSchema = new mongoose.Schema(
          type: String,
          required: true,
       },
-      aboutblog: {
-         type: String,
-         default: 'Some text',
-      },
+      description: [{
+         type: mongoose.SchemaTypes.ObjectId,
+         ref: 'Description',
+      }],
       posts: [{
          //Посилання на іншу схeму
          type: mongoose.SchemaTypes.ObjectId,
