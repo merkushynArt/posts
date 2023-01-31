@@ -83,7 +83,7 @@ export const postSlice = createSlice({
       [getAllPosts.rejected]: (state) => {
          state.loading = false;
       },
-      // Видалення посту
+      // Delete post
       [removePost.pending]: (state) => {
          state.loading = true;
       },
@@ -97,7 +97,7 @@ export const postSlice = createSlice({
       [removePost.rejected]: (state) => {
          state.loading = false;
       },
-      // Оновлення посту
+      // Update post
       [updatePost.pending]: (state) => {
          state.loading = true;
       },

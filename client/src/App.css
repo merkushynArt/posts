@@ -160,12 +160,29 @@ body {
    display: flex;
    gap: 20px;
 }
+
 .user-info__avatar img {
    display: block;
    width: 150px;
    height: 150px;
    background: #7f7f7f;
    border-radius: 50%;
+}
+
+.user-info__text {
+   width: 63%;
+}
+
+.user-info__text-title {
+   font-size: 16px;
+   font-weight: 500;
+}
+
+.user-info__text-textarea {
+   display: block;
+   width: 100%;
+   outline: none;
+   resize: none;
 }
 /*=====================================================================================*/
 .postpage {
