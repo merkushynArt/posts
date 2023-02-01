@@ -26,8 +26,8 @@ export const NavBar = () => {
       <div className='navbar'>
          <div className='navbar__container'>
 
-            <span className='navbar__avatar'>
-               A
+            <span className='navbar__logo'>
+               byMerkushyn
             </span>
 
             { isAuth && (
@@ -40,7 +40,7 @@ export const NavBar = () => {
                         style={({ isActive }) => isActive ? activeStyles : undefined}
                      >
                         <HiHome style={{fontSize : '24px'}}/>
-                        Головна
+                        <span>Головна</span>
                      </NavLink>
                   </li>
                   <li>
@@ -51,7 +51,7 @@ export const NavBar = () => {
                         style={({ isActive }) => isActive ? activeStyles : undefined}
                      >
                         <BiUserPin style={{fontSize : '24px'}}/>
-                        Мої пости
+                        <span>Мої пости</span>
                      </NavLink>
                   </li>
                   <li>
@@ -62,7 +62,7 @@ export const NavBar = () => {
                         style={({ isActive }) => isActive ? activeStyles : undefined}
                      >
                         <MdOutlineAddCircle style={{fontSize : '24px'}}/>
-                        Добавити пост
+                        <span>Добавити пост</span>
                      </NavLink>
                   </li>
                </ul>
@@ -74,5 +74,5 @@ export const NavBar = () => {
 
          </div>
       </div>
-   )
+   );
 }
