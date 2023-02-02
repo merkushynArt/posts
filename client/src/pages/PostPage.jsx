@@ -9,6 +9,7 @@ import { toast } from 'react-toastify';
 import { removePost } from '../redux/features/post/postSlice.js';
 import { createComment, getPostComments } from '../redux/features/comment/commentSlice.js';
 import { CommentItem } from '../components/CommentItem.jsx';
+import TextareaAutosize from 'react-textarea-autosize';
 
 export const PostPage = () => {
    const [post, setPost] = useState(null);
@@ -129,7 +130,7 @@ export const PostPage = () => {
                   className='postpage-comments__form'
                   onSubmit={(e) => e.preventDefault()}
                >
-                  <textarea
+                  <TextareaAutosize
                      value={comment}
                      onChange={(e) => setComment(e.target.value)}
                      placeholder='Добавте ваш коментар'

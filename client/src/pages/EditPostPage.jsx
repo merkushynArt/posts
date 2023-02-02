@@ -94,10 +94,11 @@ export const EditPostPage = () => {
          <label className='add-post__text'>
             Текст посту:
             <TextareaAutosize
-               acheMeasurements
+               cacheMeasurements
                onChange={(e) => setText(e.target.value)}
                value={text}
                placeholder='Текст посту'
+               style={{height: 'auto'}}
             />
          </label>
 

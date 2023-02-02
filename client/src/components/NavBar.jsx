@@ -26,9 +26,9 @@ export const NavBar = () => {
       <div className='navbar'>
          <div className='navbar__container'>
 
-            <span className='navbar__logo'>
+            <Link className='navbar__logo' to={'/'}>
                byMerkushyn
-            </span>
+            </Link>
 
             { isAuth && (
                <ul className='navbar__list'>
@@ -69,7 +69,7 @@ export const NavBar = () => {
             )}
 
             <div className='authblock__container'>
-               {isAuth ? (<button className='authblock' onClick={logoutHandler}><BiLogOut style={{fontSize : '24px'}}/> Вийти</button>) : (<Link className='authblock' to={'/login'}><BiLogIn style={{fontSize : '24px'}}/> Увійти </Link>)}
+               {isAuth ? (<Link className='authblock' to={'/'} onClick={logoutHandler}><BiLogOut style={{fontSize : '24px'}}/> Вийти</Link>) : (<Link className='authblock' to={'/login'}><BiLogIn style={{fontSize : '24px'}}/> Увійти </Link>)}
             </div>
 
          </div>
