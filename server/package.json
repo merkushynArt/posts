@@ -3,9 +3,13 @@
    "version": "1.0.0",
    "description": "some posts",
    "main": "index.js",
+   "engines": {
+      "node": "14.x"
+   },
    "type": "module",
    "scripts": {
-      "dev": "nodemon index.js"
+      "dev": "nodemon index.js",
+      "start": "node index.js"
    },
    "author": "Merkushyn",
    "license": "ISC",
