@@ -27,9 +27,9 @@ export const MainPage = () => {
          </div>
 
          <div className='posts-popular'>
-            <div className='text-xs uppercase'>
+            <h3 className=''>
                Популярні пости:
-            </div>
+            </h3>
             {popularPosts?.map(
                (post, idx) => (<PopularPosts key={idx} post={post} />)
             )}
