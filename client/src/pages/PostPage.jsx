@@ -81,7 +81,7 @@ export const PostPage = () => {
                >
                   {post?.imgUrl && (
                      <img
-                        src={`http://localhost:3002/${post.imgUrl}`}
+                        src={`https://raw.githubusercontent.com/merkushynArt/posts/master/server/uploads/${post.imgUrl}`}
                         alt='img'
                         className='object-cover w-full'
                      />
