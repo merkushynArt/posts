@@ -1,6 +1,7 @@
 import User from '../models/User.js';
 import bcrypt  from 'bcryptjs';
 import jwt from 'jsonwebtoken';
+import { JWT_SECRET2 } from '../index.js';
 
 // Register user
 export const register = async (req, res) => {
@@ -26,7 +27,8 @@ export const register = async (req, res) => {
          {
             id: newUser._id,
          },
-         process.env.JWT_SECRET,
+         //process.env.JWT_SECRET,
+         JWT_SECRET2,
          { expiresIn: '30d' },
       );
 
@@ -38,7 +40,7 @@ export const register = async (req, res) => {
          message: 'Реєстрація пройшла успішно.',
       })
    } catch(error) {
-      res.json({ message: 'Помилка при створенні користувача.',});
+      res.json({ message: `Помилка при створенні користувача. ${error}`,});
    }
 }
 // Login user
@@ -61,7 +63,8 @@ export const login = async (req, res) => {
          {
             id: user._id,
          },
-         process.env.JWT_SECRET,
+         //process.env.JWT_SECRET,
+         JWT_SECRET2,
          { expiresIn: '30d' },
       );
 
@@ -88,7 +91,8 @@ export const getMe = async (req, res) => {
          {
             id: user._id,
          },
-         process.env.JWT_SECRET,
+         //process.env.JWT_SECRET,
+         JWT_SECRET2,
          { expiresIn: '30d' },
       );
 

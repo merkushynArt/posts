@@ -12,10 +12,15 @@ const app = express();
 dotenv.config();
 
 // Данні які ми сховали від інших
+/*
 const PORT = process.env.PORT || 3001;
 const DB_USER = process.env.DB_USER;
 const DB_PASSWORD = process.env.DB_PASSWORD;
 const DB_NAME = process.env.DB_NAME;
+*/
+
+const PORT = 3002 || 3001;
+export const JWT_SECRET2 = 'secredPassword';
 
 // Middleware - для розширення функцыоналу express
 // Для відправки запросів з різних ip-адресів
@@ -37,7 +42,7 @@ async function start() {
    try {
       //для підголтовки к оновленню mongoose
       mongoose.set('strictQuery', false);
-      await mongoose.connect(`mongodb+srv://${DB_USER}:${DB_PASSWORD}@cluster0.r9005s1.mongodb.net/${DB_NAME}?retryWrites=true&w=majority`,)
+      await mongoose.connect(`mongodb+srv://test:test123@cluster0.r9005s1.mongodb.net/posts?retryWrites=true&w=majority`,)
 
       app.listen(PORT, () => {
          console.log(`server started on http://localhost:${PORT}/`);
