@@ -20,7 +20,7 @@ export const PostItem = ({ post }) => {
             <div className={post.imgUrl ? 'flex rouded-sm' : 'flex rounded-sm'}>
                {post.imgUrl && (
                   <img
-                     src={`../../../server/uploads/${post.imgUrl}`}
+                     src={`https://raw.githubusercontent.com/merkushynArt/posts/master/server/uploads/${post.imgUrl}`}
                      alt='img'
                      className='object-cover w-full'
                   />
