@@ -1,6 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from '../../../utils/axios.js';
-import { Axios } from 'axios';
 
 const initialState = {
    posts: [],
@@ -25,7 +24,6 @@ export const getAllPosts = createAsyncThunk(
    async () => {
       try {
          const { data } = await axios.get('/posts');
-         //const { data } = await Axios.get('https://posts-api-three.vercel.app/api/posts');
          return data;
       } catch (error) {
          console.log(error);
