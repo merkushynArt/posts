@@ -24,8 +24,8 @@ export const getAllPosts = createAsyncThunk(
    'post/getAllPosts',
    async () => {
       try {
-         //const { data } = await axios.get('/posts');
-         const { data } = await Axios.get('https://posts-api-three.vercel.app/api/posts');
+         const { data } = await axios.get('/posts');
+         //const { data } = await Axios.get('https://posts-api-three.vercel.app/api/posts');
          return data;
       } catch (error) {
          console.log(error);
