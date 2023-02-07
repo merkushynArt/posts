@@ -21,7 +21,7 @@ export const PostItem = ({ post }) => {
                {post.imgUrl && (
                   <img
                      //http://localhost:3002/
-                     src={`https://posts-api-three.vercel.app/${post.imgUrl}`}
+                     src={`http://localhost:3002/${post.imgUrl}`}
                      alt='img'
                      className='object-cover w-full'
                   />
