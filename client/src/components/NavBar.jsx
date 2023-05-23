@@ -27,7 +27,7 @@ export const NavBar = () => {
          <div className='navbar__container'>
 
             <Link className='navbar__logo' to={'/'}>
-               byMerkushyn
+               bySome_Guy13
             </Link>
 
             { isAuth && (
