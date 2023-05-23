@@ -51,7 +51,7 @@ export const NavBar = () => {
                         style={({ isActive }) => isActive ? activeStyles : undefined}
                      >
                         <BiUserPin style={{fontSize : '24px'}}/>
-                        <span>Мої пости</span>
+                        <span>Мої шаблони</span>
                      </NavLink>
                   </li>
                   <li>
@@ -62,7 +62,7 @@ export const NavBar = () => {
                         style={({ isActive }) => isActive ? activeStyles : undefined}
                      >
                         <MdOutlineAddCircle style={{fontSize : '24px'}}/>
-                        <span>Добавити пост</span>
+                        <span>Добавити шаблон</span>
                      </NavLink>
                   </li>
                </ul>

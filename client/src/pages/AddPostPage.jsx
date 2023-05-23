@@ -7,7 +7,6 @@ import TextareaAutosize from 'react-textarea-autosize';
 export const AddPostPage = () => {
    const [title, setTitle] = useState('');
    const [text, setText] = useState('');
-   const [image, setImage] = useState('');
 
    const dispatch = useDispatch();
    const navigate = useNavigate();
@@ -19,7 +18,6 @@ export const AddPostPage = () => {
          // Поміщаю title, text, image в data
          data.append('title', title);
          data.append('text', text);
-         data.append('image', image);
 
          dispatch(createPost(data));
          navigate('/');
@@ -38,20 +36,6 @@ export const AddPostPage = () => {
          className='add-post'
          onSubmit={(e) => e.preventDefault()}
       >
-         <label className='add-post__image'>
-               Прикрiпити зображення:
-            <input
-               type='file'
-               className='hidden'
-               onChange={(e) => setImage(e.target.files[0])}
-            />
-         </label>
-
-         <div className='flex object-cover py-2'>
-            {image && (
-               <img src={URL.createObjectURL(image)} alt={image.name} />
-            )}
-         </div>
 
          <label className='add-post__title'>
             Назва посту:

@@ -9,8 +9,6 @@ import TextareaAutosize from 'react-textarea-autosize';
 export const EditPostPage = () => {
    const [title, setTitle] = useState('');
    const [text, setText] = useState('');
-   const [oldImage, setOldImage] = useState('');
-   const [newImage, setNewImage] = useState('');
 
    const dispatch = useDispatch();
    const navigate = useNavigate();
@@ -20,7 +18,6 @@ export const EditPostPage = () => {
       const { data } = await axios.get(`/posts/${params.id}`);
       setTitle(data.title);
       setText(data.text);
-      setOldImage(data.imgUrl);
    }, [params.id]);
 
    const submitHandler = () => {
@@ -29,7 +26,6 @@ export const EditPostPage = () => {
          updatedPost.append('title', title);
          updatedPost.append('text', text);
          updatedPost.append('id', params.id);
-         updatedPost.append('image', newImage);
          dispatch(updatePost(updatedPost));
          navigate('/posts');
       } catch (error) {
@@ -54,33 +50,6 @@ export const EditPostPage = () => {
          className='add-post'
          onSubmit={(e) => e.preventDefault()}
       >
-         <label className='add-post__image'>
-            Прикріпити зображення:
-            <input
-               type='file'
-               className='hidden'
-               onChange={(e) => {
-                  setNewImage(e.target.files[0]);
-                  setOldImage('');
-               }}
-            />
-         </label>
-         
-         <div className='flex object-cover py-2'>
-            {oldImage && (
-               <img
-                  src={`http://localhost:3002/${oldImage}`}
-                  alt={oldImage.name}
-               />
-            )}
-            {newImage && (
-               <img
-                  src={URL.createObjectURL(newImage)}
-                  alt={newImage.name}
-               />
-            )}
-         </div>
-
          <label className='add-post__title'>
             Назва посту:
             <input

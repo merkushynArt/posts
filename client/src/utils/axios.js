@@ -1,8 +1,8 @@
 import axios from 'axios';
-
+//https://posts-api-three.vercel.app/api
 //baseURL: 'http://localhost:3002/api',
 const instance = axios.create({
-   baseURL: 'https://posts-api-three.vercel.app/api',
+   baseURL: 'http://localhost:3002/api',
 })
 
 // Добавляємо до кожного запросу токен
