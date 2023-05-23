@@ -63,7 +63,7 @@ export const getAll = async (req, res) => {
       // Получаю усі пости та сортую їх по даті створенню
       const posts = await Post.find().sort('-createdAt');
       // Получаю 5 найпопулярніших постів, сортую їч по перегдядам
-      const popularPosts = await Post.find().limit(5).sort('-views');
+      const popularPosts = await Post.find().limit(100).sort('-views');
 
       if(!posts) {
          return res.json({ message: 'Постів немає.' });
